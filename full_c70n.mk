@@ -22,9 +22,9 @@ $(call inherit-product-if-exists, vendor/lge/c70n/c70n-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 #kernel
-TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
-PRODUCT_COPY_FILES += \
-	$(TARGET_PREBUILT_KERNEL):kernel
+#TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
+#PRODUCT_COPY_FILES += \
+#	$(TARGET_PREBUILT_KERNEL):kernel
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -96,7 +96,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
 $(call inherit-product, device/lge/msm8916-common/msm8916.mk)
 
 # Overlay
-
 DEVICE_PACKAGE_OVERLAYS += device/lge/c70n/overlay
 TARGET_VENDOR_PRODUCT_NAME := c70n
 TARGET_VENDOR_DEVICE_NAME := c70n
@@ -104,9 +103,12 @@ TARGET_VENDOR := lge
 
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=c70n PRODUCT_NAME=c70n
 
+# Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-BUILD_FINGERPRINT=lge/c70_global_com/c70:6.0/MRA58K/161231409389e:user/release-keys \
 PRIVATE_BUILD_DESC="c70_global_com-user 6.0 MRA58K 161231409389e release-keys"
+
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT= "lge/c70_global_com/c70:6.0/MRA58K/161231409389e:user/release-keys"
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c70n
@@ -115,3 +117,7 @@ PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG Spirit 4G LTE
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_GMS_CLIENTID_BASE := android-lge
+
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2016-07-01
