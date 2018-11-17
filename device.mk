@@ -67,3 +67,6 @@ PRODUCT_PACKAGES += \
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lineage.build.vendor_security_patch=2016-07-01
+
+# Common Android Go configurations
+$(call inherit-product, build/target/product/go_defaults.mk)
