@@ -1,1 +1,2 @@
 add_lunch_combo lineage_c70n-user
+add_lunch_combo lineage_c70n-userdebug

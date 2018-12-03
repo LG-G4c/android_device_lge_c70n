@@ -53,7 +53,6 @@
     <ctl name="HPHR" value="ZERO" />
     <ctl name="SPK DAC Switch" value="0" />
     <ctl name="Speaker Boost" value="DISABLE" />
-    <ctl name="Boost Option" value="BYPASS_ALWAYS" />
     <ctl name="MICBIAS CAPLESS Switch" value="0" />
     <ctl name="EAR PA Gain" value="POS_6_DB" />
     <ctl name="MI2S_RX Channels" value="One" />
@@ -539,11 +538,10 @@
     </path>
 
     <path name="speaker">
-        <ctl name="Boost Option" value="BYPASS_ALWAYS" />
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-	<ctl name="RX3 MIX1 INP2" value="RX2" />
-	<ctl name="SPK DAC Switch" value="1" />
-	<ctl name="RX3 Digital Volume" value="80" />
+       <ctl name="RX3 MIX1 INP1" value="RX1" />
+	   <ctl name="RX3 MIX1 INP2" value="RX2" />
+	   <ctl name="SPK DAC Switch" value="1" />
+	   <ctl name="RX3 Digital Volume" value="80" />
     </path>
 
     <path name="speaker-mic">
@@ -559,7 +557,6 @@
         <ctl name="RDAC2 MUX" value="RX1" />
         <ctl name="RX1 Digital Volume" value="84" />
         <ctl name="EAR_S" value="Switch" />
-        <ctl name="EAR PA Gain" value="POS_6_DB" />
     </path>
 
     <path name="handset-mic">
@@ -578,7 +575,6 @@
         <ctl name="RX2 Digital Volume" value="74" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
-        <ctl name="EAR PA Gain" value="POS_6_DB" />
     </path>
 
     <path name="headset-mic">
@@ -618,12 +614,12 @@
 
     <path name="voice-handset-mic">
         <path name="handset-mic" />
-        <ctl name="DEC1 Volume" value="84" />
-    </path>
+        <ctl name="DEC1 Volume" value="88" />
+	</path>
 
     <path name="voice-speaker">
         <path name="speaker" />
-        <ctl name="RX3 Digital Volume" value="81" />
+        <ctl name="RX3 Digital Volume" value="84" />
     </path>
 
     <path name="voice-speaker-mic">
@@ -695,7 +691,8 @@
         <path name="adc3" />
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
-        <ctl name="DEC1 Volume" value="80" />
+        <ctl name="DEC1 Volume" value="87" />
+        <ctl name="ADC3 Volume" value="6" />
     </path>
 
     <path name="loopback-headset-mic">
@@ -873,6 +870,7 @@
 
     <path name="voice-tty-vco-handset-mic">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="6" />
     </path>
 
     <path name="ADSP testfwk">

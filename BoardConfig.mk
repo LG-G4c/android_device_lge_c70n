@@ -13,40 +13,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# inherit from common msm8916
--include device/lge/msm8916-common/BoardConfigCommon.mk
 
+# inherit from common msm8916
+include device/lge/msm8916-common/BoardConfigCommon.mk
+
+LOCAL_PATH := device/lge/c70n
+
+#OTA
+TARGET_OTA_ASSERT_DEVICE := c70n,LG-H440
+
+#Kernel
 TARGET_KERNEL_CONFIG := c70_defconfig
-BOARD_KERNEL_SEPARATED_DT := true
-# Partitions
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824      # 16384 * 1024 mmcblk0p31
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824  # 16484 * 1024 mmcblk0p32
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2576980992  # 2375680 * 1024 mmcblk0p41
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 3833488384 # 4751232 * 1024 mmcblk0p42
 TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
-# Recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_PREBUILT_KERNEL := device/lge/c70n/recovery/kernel
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824      # 24576 * 1024 mmcblk0p18
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824  # 24576 * 1024 mmcblk0p19
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2576980992  # 2516583 * 1024 mmcblk0p37
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 3833488384 # 3743641 * 1024 mmcblk0p39
 
-# Vold
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/fileS
-
-# Bluetooth
-#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
-#BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := false
-#BOARD_HAS_QCA_BT_ROME := true
-#BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_QCOM := true
-#QCOM_BT_USE_BTNV := true
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # NFC
 BOARD_NFC_DEVICE := "/dev/bcm2079x"
 
-# TWRP
-RECOVERY_VARIANT := twrp
-TW_THEME := portrait_hdpi
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_IGNORE_MISC_WIPE_DATA := true
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
