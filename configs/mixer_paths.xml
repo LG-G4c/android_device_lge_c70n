@@ -562,7 +562,7 @@
     <path name="handset-mic">
         <path name="adc1" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
-        <ctl name="DEC1 Volume" value="84" />
+        <ctl name="DEC1 Volume" value="106" />
         <ctl name="ADC1 Volume" value="6" />
     </path>
 
@@ -581,7 +581,7 @@
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
-        <ctl name="DEC1 Volume" value="84" />
+        <ctl name="DEC1 Volume" value="106" />
         <ctl name="ADC2 Volume" value="6" />
     </path>
 
